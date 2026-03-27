@@ -2,12 +2,16 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:thingsboard_app/config/routes/router.dart';
+import 'package:thingsboard_app/config/routes/v2/router_2.dart';
 import 'package:thingsboard_app/constants/assets_path.dart';
 import 'package:thingsboard_app/core/entity/entities_base.dart';
 import 'package:thingsboard_app/generated/l10n.dart';
 import 'package:thingsboard_app/locator.dart';
+import 'package:thingsboard_app/modules/dashboard/domain/entites/dashboard_arguments.dart';
 import 'package:thingsboard_app/thingsboard_client.dart';
 import 'package:thingsboard_app/utils/services/device_profile/device_profile_cache.dart';
 import 'package:thingsboard_app/utils/services/device_profile/model/cached_device_profile.dart';
@@ -33,7 +37,7 @@ mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
   }
 
   @override
-  Future<void> onEntityTap(EntityData device) async {
+  Future<void> onEntityTap(EntityData device, WidgetRef ref) async {
     final profile = await DeviceProfileCache.getDeviceProfileInfo(
       tbClient,
       device.field('type')!,
@@ -46,11 +50,16 @@ mixin DevicesBase on EntitiesBase<EntityData, EntityDataQuery> {
         entityName: device.field('name'),
         entityLabel: device.field('label'),
       );
-      getIt<ThingsboardAppRouter>().navigateToDashboard(
-        dashboardId,
-        dashboardTitle: device.field('name'),
-        state: state,
-      );
+          globalNavigatorKey.currentContext?.pushReplacement(
+          '/dashboard',
+          extra: DashboardArgumentsEntity(
+            id: dashboardId,
+            title: device.field('name'),
+            state: state,
+            hideToolbar: false,
+            animate: false,
+          ),
+        );
     } else {
       if (tbClient.isTenantAdmin()) {
         overlayService.showWarnNotification(
@@ -265,17 +274,15 @@ class _DeviceCardState extends State<DeviceCard> {
                                     children: [
                                       Flexible(
                                         fit: FlexFit.tight,
-                                        child: FittedBox(
-                                          fit: BoxFit.scaleDown,
-                                          alignment: Alignment.centerLeft,
-                                          child: Text(
-                                            widget.device.field('name')!,
-                                            style: const TextStyle(
-                                              color: Color(0xFF282828),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-                                              height: 20 / 14,
-                                            ),
+                                        child: Text(
+                                          widget.device.field('name')!,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            color: Color(0xFF282828),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500,
+                                            height: 20 / 14,
                                           ),
                                         ),
                                       ),
@@ -436,11 +443,11 @@ class _DeviceCardState extends State<DeviceCard> {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    FittedBox(
-                      fit: BoxFit.fitWidth,
-                      alignment: Alignment.centerLeft,
+                    Flexible(
                       child: Text(
                         widget.device.field('name')!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: Color(0xFF282828),
                           fontSize: 14,

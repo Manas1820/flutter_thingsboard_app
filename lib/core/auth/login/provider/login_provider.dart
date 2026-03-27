@@ -38,10 +38,11 @@ class Login extends _$Login {
   }
 
   Future<void> logout() async {
-      if (getIt<IFirebaseService>().apps.isNotEmpty && state.isFullyAuthenticated()) {
-        await getIt<NotificationService>().logout();
-      }
-      await _tbClient.logout(requestConfig: RequestConfig(ignoreErrors: true));
+    if (getIt<IFirebaseService>().apps.isNotEmpty &&
+        state.isFullyAuthenticated()) {
+      await getIt<NotificationService>().logout();
+    }
+    await _tbClient.logout(requestConfig: RequestConfig(ignoreErrors: true));
   }
 
   Future<void> handleUserLoaded() async {
@@ -63,8 +64,18 @@ class Login extends _$Login {
     await _onFullyLoggedIn();
   }
 
-  Future<void> login(String email, String password) async {
-    final res = await _tbClient.login(LoginRequest(email, password));
+  Future<bool> login(String email, String password) async {
+    try {
+      final res = await _tbClient.login(LoginRequest(email, password));
+      final user = _tbClient.getAuthUser();
+      if (user != null &&
+          (user.isMfaConfigurationToken() || user.isPreVerificationToken())) {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+    return true;
   }
 
   Future<void> loadUser() async {
@@ -81,8 +92,8 @@ class Login extends _$Login {
       (l) => l.toString() == lang.toString().split('_')[0],
     );
 
-      await S.load(locale ?? Locale('en'));
-    
+    await S.load(locale ?? const Locale('en'));
+
     state = state.copyWith(
       isUserLoaded: true,
       user: userInfo,
@@ -102,7 +113,7 @@ class Login extends _$Login {
     await _onFullyLoggedIn();
   }
 
-  Future<void> oauthLogin(String url) async {
+  Future<bool> oauthLogin(String url) async {
     try {
       final result = await getIt<IOAuth2Client>().authenticate(url);
       if (result.success) {
@@ -111,11 +122,13 @@ class Login extends _$Login {
           result.refreshToken,
           true,
         );
+        return true;
       } else {
         _overlayService.showErrorNotification((_) => result.error!);
       }
     } catch (e) {
       _overlayService.showErrorNotification((_) => e.toString());
     }
+    return false;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:thingsboard_app/config/routes/router.dart';
 import 'package:thingsboard_app/core/entity/entities_base.dart';
 import 'package:thingsboard_app/locator.dart';
@@ -28,7 +29,7 @@ mixin AssetsBase on EntitiesBase<AssetInfo, PageLink> {
   }
 
   @override
-  void onEntityTap(AssetInfo asset) {
+  void onEntityTap(AssetInfo asset, WidgetRef ref) {
     if (asset.id?.id != null) {
       getIt<ThingsboardAppRouter>().navigateTo('/assets/asset/${asset.id!.id}');
     }
@@ -68,17 +69,15 @@ mixin AssetsBase on EntitiesBase<AssetInfo, PageLink> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
-                            child: FittedBox(
-                              fit: BoxFit.fitWidth,
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                asset.name,
-                                style: const TextStyle(
-                                  color: Color(0xFF282828),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  height: 20 / 14,
-                                ),
+                            child: Text(
+                              asset.name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                color: Color(0xFF282828),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                height: 20 / 14,
                               ),
                             ),
                           ),
@@ -135,17 +134,15 @@ mixin AssetsBase on EntitiesBase<AssetInfo, PageLink> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      FittedBox(
-                        fit: BoxFit.fitWidth,
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          asset.name,
-                          style: const TextStyle(
-                            color: Color(0xFF282828),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            height: 1.7,
-                          ),
+                      Text(
+                        asset.name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Color(0xFF282828),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          height: 1.7,
                         ),
                       ),
                       Text(
