@@ -23,41 +23,74 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(appTitle) =>
       "Gefeliciteerd!\nUw ${appTitle}-account is geactiveerd.\nU kunt nu inloggen op uw ${appTitle}-omgeving.";
 
-  static String m2(count) => "Alarmen";
+  static String m1(authority) =>
+      "Weet u het zeker? U gaat uw ${authority}-account verwijderen.";
+
+  static String m2(count) =>
+      "${Intl.plural(count, one: 'Alarm', other: 'Alarmen')}";
+
+  static String m3(providerName) =>
+      "Weet u zeker dat u ${providerName} wilt deactiveren?";
 
   static String m4(deviceName) =>
       "Kan geen sessie tot stand brengen met apparaat ${deviceName}. Probeer het opnieuw";
 
-  static String m8(count) => "Dashboards";
+  static String m5(link) => "Kan url niet openen: ${link}";
 
-  static String m9(count) => "Apparaten";
+  static String m6(wifiName) =>
+      "Verbind met Wi-Fi vergelijkbaar met ${wifiName}";
+
+  static String m7(name) =>
+      "Verbinding met het Wi-Fi-netwerk ${name} mislukt.\nZorg ervoor dat uw telefoon verbonden is met het Wi-Fi-netwerk van het apparaat en dat lokale netwerktoegang is ingeschakeld.";
+
+  static String m8(count) =>
+      "${Intl.plural(count, one: 'Dashboard', other: 'Dashboards')}";
+
+  static String m9(count) =>
+      "${Intl.plural(count, one: 'Apparaat', other: 'Apparaten')}";
+
+  static String m10(count) =>
+      "${count}-${Intl.plural(count, one: 'cijferige', other: 'cijferige')} code";
 
   static String m11(contact) =>
       "Er is een beveiligingscode verzonden naar uw e-mailadres op ${contact}.";
 
-  static String m13(count) => "Meldingen";
+  static String m12(e) => "Fout opgetreden: ${e}";
 
-  static String m14(permissions) =>
-      "U heeft onvoldoende rechten voor \"${permissions}\" om door te gaan. Open de app-instellingen, verleen de rechten en tik op \"Opnieuw proberen\".";
+  static String m13(error) => "Fout bij het verzenden van de code: ${error}";
+
+  static String m14(count) =>
+      "${Intl.plural(count, one: 'Melding', other: 'Meldingen')}";
 
   static String m15(permissions) =>
+      "U heeft onvoldoende rechten voor \"${permissions}\" om door te gaan. Open de app-instellingen, verleen de rechten en tik op \"Opnieuw proberen\".";
+
+  static String m16(permissions) =>
       "U heeft onvoldoende rechten voor \"${permissions}\" om door te gaan. Verleen de vereiste rechten en tik op \"Opnieuw proberen\".";
 
-  static String m16(deviceName) =>
+  static String m17(deviceName) =>
       "Voer de pincode van ${deviceName} in om eigendomsbewijs te bevestigen";
 
-  static String m17(time) =>
+  static String m18(time) =>
       "Code opnieuw verzenden in ${Intl.plural(time, one: '1 seconde', other: '${time} seconden')}";
 
-  static String m20(contact) =>
+  static String m19(name) => "Route niet gedefinieerd: ${name}";
+
+  static String m20(count) =>
+      "${Intl.plural(count, one: 'Gebruiker zoeken', other: 'Gebruikers zoeken')}";
+
+  static String m21(contact) =>
       "Er is een beveiligingscode verzonden naar uw telefoon op ${contact}.";
 
-  static String m22(version) => "Updaten naar ${version}";
+  static String m22(name) =>
+      "Kan niet verbinden met Wi-Fi omdat het apparaat ${name} geen netwerken heeft gevonden";
 
-  static String m23(deviceName) =>
+  static String m23(version) => "Updaten naar ${version}";
+
+  static String m24(deviceName) =>
       "Om de installatie van uw apparaat ${deviceName} voort te zetten, geef de netwerkgegevens op.";
 
-  static String m24(network) => "Voer het wachtwoord in voor ${network}";
+  static String m25(network) => "Voer het wachtwoord in voor ${network}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -72,8 +105,96 @@ class MessageLookup extends MessageLookupByLibrary {
       "Account succesvol geactiveerd!",
     ),
     "accountActivatedText": m0,
+    "accountDeletionDialogBody": m1,
     "acknowledge": MessageLookupByLibrary.simpleMessage("Bevestigen"),
+    "acknowledged": MessageLookupByLibrary.simpleMessage("Bevestigd"),
     "actionData": MessageLookupByLibrary.simpleMessage("Actiegegevens"),
+    "actionStatusFailure": MessageLookupByLibrary.simpleMessage("Mislukt"),
+    "actionStatusSuccess": MessageLookupByLibrary.simpleMessage("Succes"),
+    "actionTypeActivated": MessageLookupByLibrary.simpleMessage("Geactiveerd"),
+    "actionTypeAdded": MessageLookupByLibrary.simpleMessage("Toegevoegd"),
+    "actionTypeAddedComment": MessageLookupByLibrary.simpleMessage(
+      "Opmerking toegevoegd",
+    ),
+    "actionTypeAlarmAck": MessageLookupByLibrary.simpleMessage("Bevestigd"),
+    "actionTypeAlarmAssigned": MessageLookupByLibrary.simpleMessage(
+      "Alarm toegewezen",
+    ),
+    "actionTypeAlarmClear": MessageLookupByLibrary.simpleMessage("Gewist"),
+    "actionTypeAlarmDelete": MessageLookupByLibrary.simpleMessage(
+      "Alarm verwijderd",
+    ),
+    "actionTypeAlarmUnassigned": MessageLookupByLibrary.simpleMessage(
+      "Alarm niet toegewezen",
+    ),
+    "actionTypeAssignedFromTenant": MessageLookupByLibrary.simpleMessage(
+      "Toegewezen door tenant",
+    ),
+    "actionTypeAssignedToCustomer": MessageLookupByLibrary.simpleMessage(
+      "Toegewezen aan klant",
+    ),
+    "actionTypeAssignedToEdge": MessageLookupByLibrary.simpleMessage(
+      "Toegewezen aan Edge",
+    ),
+    "actionTypeAssignedToTenant": MessageLookupByLibrary.simpleMessage(
+      "Toegewezen aan tenant",
+    ),
+    "actionTypeAttributesDeleted": MessageLookupByLibrary.simpleMessage(
+      "Attributen verwijderd",
+    ),
+    "actionTypeAttributesRead": MessageLookupByLibrary.simpleMessage(
+      "Attributen gelezen",
+    ),
+    "actionTypeAttributesUpdated": MessageLookupByLibrary.simpleMessage(
+      "Attributen bijgewerkt",
+    ),
+    "actionTypeCredentialsRead": MessageLookupByLibrary.simpleMessage(
+      "Inloggegevens gelezen",
+    ),
+    "actionTypeCredentialsUpdated": MessageLookupByLibrary.simpleMessage(
+      "Inloggegevens bijgewerkt",
+    ),
+    "actionTypeDeleted": MessageLookupByLibrary.simpleMessage("Verwijderd"),
+    "actionTypeDeletedComment": MessageLookupByLibrary.simpleMessage(
+      "Opmerking verwijderd",
+    ),
+    "actionTypeLockout": MessageLookupByLibrary.simpleMessage("Geblokkeerd"),
+    "actionTypeLogin": MessageLookupByLibrary.simpleMessage("Inloggen"),
+    "actionTypeLogout": MessageLookupByLibrary.simpleMessage("Uitloggen"),
+    "actionTypeProvisionFailure": MessageLookupByLibrary.simpleMessage(
+      "Provisioning mislukt",
+    ),
+    "actionTypeProvisionSuccess": MessageLookupByLibrary.simpleMessage(
+      "Apparaat geprovisioneerd",
+    ),
+    "actionTypeRelationAddOrUpdate": MessageLookupByLibrary.simpleMessage(
+      "Relatie bijgewerkt",
+    ),
+    "actionTypeRelationDeleted": MessageLookupByLibrary.simpleMessage(
+      "Relatie verwijderd",
+    ),
+    "actionTypeRelationsDeleted": MessageLookupByLibrary.simpleMessage(
+      "Alle relaties verwijderd",
+    ),
+    "actionTypeRpcCall": MessageLookupByLibrary.simpleMessage("RPC-oproep"),
+    "actionTypeSmsSent": MessageLookupByLibrary.simpleMessage("SMS verzonden"),
+    "actionTypeSuspended": MessageLookupByLibrary.simpleMessage("Opgeschort"),
+    "actionTypeTimeseriesDeleted": MessageLookupByLibrary.simpleMessage(
+      "Telemetrie verwijderd",
+    ),
+    "actionTypeTimeseriesUpdated": MessageLookupByLibrary.simpleMessage(
+      "Telemetrie bijgewerkt",
+    ),
+    "actionTypeUnassignedFromCustomer": MessageLookupByLibrary.simpleMessage(
+      "Verwijderd van klant",
+    ),
+    "actionTypeUnassignedFromEdge": MessageLookupByLibrary.simpleMessage(
+      "Verwijderd van Edge",
+    ),
+    "actionTypeUpdated": MessageLookupByLibrary.simpleMessage("Bijgewerkt"),
+    "actionTypeUpdatedComment": MessageLookupByLibrary.simpleMessage(
+      "Opmerking bijgewerkt",
+    ),
     "activatingAccount": MessageLookupByLibrary.simpleMessage(
       "Account activeren...",
     ),
@@ -85,8 +206,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "addCommentMessage": MessageLookupByLibrary.simpleMessage(
       "Voeg een opmerking toe...",
     ),
+    "addVerificationMethod": MessageLookupByLibrary.simpleMessage(
+      "Verificatiemethode toevoegen",
+    ),
     "address": MessageLookupByLibrary.simpleMessage("Adres"),
     "address2": MessageLookupByLibrary.simpleMessage("Adresregel 2"),
+    "adminSettings": MessageLookupByLibrary.simpleMessage(
+      "Beheerdersinstellingen",
+    ),
+    "aiModel": MessageLookupByLibrary.simpleMessage("AI-model"),
     "alarmAcknowledgeText": MessageLookupByLibrary.simpleMessage(
       "Weet u zeker dat u het alarm wilt bevestigen?",
     ),
@@ -97,15 +225,37 @@ class MessageLookup extends MessageLookupByLibrary {
       "Weet u zeker dat u het alarm wilt wissen?",
     ),
     "alarmClearTitle": MessageLookupByLibrary.simpleMessage("Alarm wissen"),
+    "alarmSeverityList": MessageLookupByLibrary.simpleMessage(
+      "Alarm-ernstlijst",
+    ),
+    "alarmStatusList": MessageLookupByLibrary.simpleMessage("Alarmstatuslijst"),
+    "alarmTypeList": MessageLookupByLibrary.simpleMessage("Alarmtypelijst"),
     "alarmTypes": MessageLookupByLibrary.simpleMessage("Alarmtypes"),
     "alarms": m2,
+    "all": MessageLookupByLibrary.simpleMessage("Alle"),
     "allDevices": MessageLookupByLibrary.simpleMessage("Alle apparaten"),
+    "allowAccess": MessageLookupByLibrary.simpleMessage("Toegang toestaan"),
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Heeft u al een account?",
     ),
+    "anEmptyRequestDataReceived": MessageLookupByLibrary.simpleMessage(
+      "Lege verzoekgegevens ontvangen.",
+    ),
+    "anyType": MessageLookupByLibrary.simpleMessage("Elk type"),
+    "apiKey": MessageLookupByLibrary.simpleMessage("API-sleutel"),
+    "apiUsageState": MessageLookupByLibrary.simpleMessage("API-gebruiksstatus"),
     "appTitle": MessageLookupByLibrary.simpleMessage("ThingsBoard"),
+    "applyChanges": MessageLookupByLibrary.simpleMessage(
+      "Wijzigingen toepassen",
+    ),
     "areYouSure": MessageLookupByLibrary.simpleMessage("Weet u het zeker?"),
+    "areYouSureYouWantToDeactivate": m3,
+    "areYouSureYouWantToExit": MessageLookupByLibrary.simpleMessage(
+      "Weet u zeker dat u wilt afsluiten?",
+    ),
+    "asset": MessageLookupByLibrary.simpleMessage("Asset"),
     "assetName": MessageLookupByLibrary.simpleMessage("Assetnaam"),
+    "assetProfile": MessageLookupByLibrary.simpleMessage("Assetprofiel"),
     "assets": MessageLookupByLibrary.simpleMessage("Assets"),
     "assignedToCustomer": MessageLookupByLibrary.simpleMessage(
       "Toegewezen aan klant",
@@ -116,17 +266,26 @@ class MessageLookup extends MessageLookupByLibrary {
       "Details auditlogboek",
     ),
     "auditLogs": MessageLookupByLibrary.simpleMessage("Auditlogboeken"),
+    "autoUnitSystem": MessageLookupByLibrary.simpleMessage("Auto"),
     "backupCodeAuthDescription": MessageLookupByLibrary.simpleMessage(
       "Voer een van uw back-upcodes in.",
     ),
     "backupCodeAuthPlaceholder": MessageLookupByLibrary.simpleMessage(
       "Back-upcode",
     ),
+    "backupCodeSetupSuccessDescription": MessageLookupByLibrary.simpleMessage(
+      "De volgende keer dat u inlogt, kunt u back-upcodes gebruiken voor tweefactorauthenticatie",
+    ),
     "bleHelpMessage": MessageLookupByLibrary.simpleMessage(
       "Om uw nieuwe apparaat te provisioneren, zorg ervoor dat Bluetooth op uw telefoon is ingeschakeld en dat u zich binnen bereik van uw nieuwe apparaat bevindt",
     ),
+    "calculatedField": MessageLookupByLibrary.simpleMessage("Berekend veld"),
     "cancel": MessageLookupByLibrary.simpleMessage("Annuleren"),
     "cannotEstablishSession": m4,
+    "cantDeleteUserAccount": MessageLookupByLibrary.simpleMessage(
+      "Can\\\'t delete user account",
+    ),
+    "cantLaunchUrlLink": m5,
     "changePassword": MessageLookupByLibrary.simpleMessage(
       "Wachtwoord wijzigen",
     ),
@@ -140,19 +299,48 @@ class MessageLookup extends MessageLookupByLibrary {
       "Apparaat is\nsuccesvol geclaimd",
     ),
     "clear": MessageLookupByLibrary.simpleMessage("Wissen"),
+    "cleared": MessageLookupByLibrary.simpleMessage("Gewist"),
+    "close": MessageLookupByLibrary.simpleMessage("Sluiten"),
+    "codeVerificationFailed": MessageLookupByLibrary.simpleMessage(
+      "Codeverificatie mislukt!",
+    ),
     "confirmNotRobotMessage": MessageLookupByLibrary.simpleMessage(
       "U moet bevestigen dat u geen robot bent",
+    ),
+    "confirmToCloseTheApp": MessageLookupByLibrary.simpleMessage(
+      "Bevestig om de app te sluiten",
     ),
     "confirmation": MessageLookupByLibrary.simpleMessage("Bevestiging"),
     "confirmingWifiConnection": MessageLookupByLibrary.simpleMessage(
       "Wi-Fi-verbinding bevestigen",
     ),
+    "connectToDevice": MessageLookupByLibrary.simpleMessage(
+      "Verbinden met apparaat",
+    ),
+    "connectToTheWifiYouUsuallyUse": MessageLookupByLibrary.simpleMessage(
+      "Verbind met het Wi-Fi dat u normaal gebruikt",
+    ),
+    "connectToWifiSimilarToWifiname": m6,
+    "connectingToDevice": MessageLookupByLibrary.simpleMessage(
+      "Verbinden met apparaat",
+    ),
+    "connectionError": MessageLookupByLibrary.simpleMessage("Verbindingsfout"),
+    "connectionToTheWifiNetworkFailednpleaseEnsureThatYour": m7,
     "continueText": MessageLookupByLibrary.simpleMessage("Doorgaan"),
+    "copiedToClipboard": MessageLookupByLibrary.simpleMessage(
+      "Gekopieerd naar klembord",
+    ),
+    "copy": MessageLookupByLibrary.simpleMessage("Kopiëren"),
+    "copy32digitsKeyToYourAuthenticationAppOrScanQrcode":
+        MessageLookupByLibrary.simpleMessage(
+          "Kopieer de 32-cijferige sleutel naar uw authenticator-app of scan de QR-code hieronder",
+        ),
     "country": MessageLookupByLibrary.simpleMessage("Land"),
     "createAccount": MessageLookupByLibrary.simpleMessage("Account aanmaken"),
     "createPassword": MessageLookupByLibrary.simpleMessage(
       "Maak een wachtwoord aan",
     ),
+    "critical": MessageLookupByLibrary.simpleMessage("Kritiek"),
     "currentPassword": MessageLookupByLibrary.simpleMessage(
       "Huidig wachtwoord",
     ),
@@ -164,16 +352,33 @@ class MessageLookup extends MessageLookupByLibrary {
     "dashboards": m8,
     "days": MessageLookupByLibrary.simpleMessage("dagen"),
     "delete": MessageLookupByLibrary.simpleMessage("Verwijderen"),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage(
+      "Account verwijderen",
+    ),
     "deleteComment": MessageLookupByLibrary.simpleMessage(
       "Opmerking verwijderen",
     ),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "deviceList": MessageLookupByLibrary.simpleMessage("Apparatenlijst"),
+    "deviceNotAbleToFindWifiNearby": MessageLookupByLibrary.simpleMessage(
+      "Apparaat kan geen Wi-Fi vinden in de buurt",
+    ),
     "deviceNotFoundMessage": MessageLookupByLibrary.simpleMessage(
       "Apparaten niet gevonden. Zorg ervoor dat Bluetooth op uw telefoon is ingeschakeld en dat u zich binnen bereik van uw nieuwe apparaat bevindt.",
     ),
+    "deviceProfile": MessageLookupByLibrary.simpleMessage("Apparaatprofiel"),
+    "deviceProvisioning": MessageLookupByLibrary.simpleMessage(
+      "Apparaatprovisioning",
+    ),
     "devices": m9,
+    "digitsCode": m10,
+    "discardChanges": MessageLookupByLibrary.simpleMessage(
+      "Wijzigingen verwerpen",
+    ),
+    "domain": MessageLookupByLibrary.simpleMessage("Domein"),
+    "done": MessageLookupByLibrary.simpleMessage("Klaar"),
     "duration": MessageLookupByLibrary.simpleMessage("Duur"),
+    "edge": MessageLookupByLibrary.simpleMessage("Edge"),
     "edit": MessageLookupByLibrary.simpleMessage("Bewerken"),
     "edited": MessageLookupByLibrary.simpleMessage("Bewerkt"),
     "email": MessageLookupByLibrary.simpleMessage("E-mail"),
@@ -184,6 +389,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "emailRequireText": MessageLookupByLibrary.simpleMessage(
       "E-mail is verplicht.",
+    ),
+    "emailSetupSuccessDescription": MessageLookupByLibrary.simpleMessage(
+      "De volgende keer dat u inlogt, wordt u gevraagd de beveiligingscode in te voeren die naar uw e-mailadres wordt gestuurd",
     ),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
       "E-mailverificatie",
@@ -197,9 +405,29 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerified": MessageLookupByLibrary.simpleMessage(
       "E-mail geverifieerd",
     ),
+    "enter6digitsKeyFromYourAppHere": MessageLookupByLibrary.simpleMessage(
+      "Voer de 6-cijferige code uit uw app hier in:",
+    ),
+    "enterAPhoneNumberToUseAsYourAuthenticator":
+        MessageLookupByLibrary.simpleMessage(
+          "Voer een telefoonnummer in om als authenticator te gebruiken",
+        ),
+    "enterAnEmailToUseAsYourAuthenticator":
+        MessageLookupByLibrary.simpleMessage(
+          "Voer een e-mailadres in om als authenticator te gebruiken.",
+        ),
     "entityType": MessageLookupByLibrary.simpleMessage("Entiteitstype"),
+    "entityView": MessageLookupByLibrary.simpleMessage("Entiteitsweergave"),
+    "errorOccured": m12,
+    "errorSendingCode": m13,
     "europe": MessageLookupByLibrary.simpleMessage("Europa"),
     "europeRegionShort": MessageLookupByLibrary.simpleMessage("Frankfurt"),
+    "exitDeviceProvisioning": MessageLookupByLibrary.simpleMessage(
+      "Apparaatprovisioning verlaten",
+    ),
+    "failedToConnectToServer": MessageLookupByLibrary.simpleMessage(
+      "Kan geen verbinding maken met de server",
+    ),
     "failedToLoadAlarmDetails": MessageLookupByLibrary.simpleMessage(
       "Details van alarm laden mislukt",
     ),
@@ -207,14 +435,30 @@ class MessageLookup extends MessageLookupByLibrary {
       "Laden van de lijst mislukt",
     ),
     "failureDetails": MessageLookupByLibrary.simpleMessage("Foutdetails"),
+    "fatalApplicationErrorOccurred": MessageLookupByLibrary.simpleMessage(
+      "Fatale applicatiefout opgetreden:",
+    ),
+    "fatalError": MessageLookupByLibrary.simpleMessage("Fatale fout"),
+    "filters": MessageLookupByLibrary.simpleMessage("Filters"),
+    "firebaseIsNotConfiguredPleaseReferToTheOfficialFirebase":
+        MessageLookupByLibrary.simpleMessage(
+          "Firebase is niet geconfigureerd.\nRaadpleeg de officiële Firebase-documentatie\nvoor instructies.",
+        ),
     "firstName": MessageLookupByLibrary.simpleMessage("Voornaam"),
     "firstNameRequireText": MessageLookupByLibrary.simpleMessage(
       "Voornaam is verplicht.",
     ),
     "firstNameUpper": MessageLookupByLibrary.simpleMessage("Voornaam"),
+    "goBack": MessageLookupByLibrary.simpleMessage("Terug"),
+    "hideHomeDashboardToolbar": MessageLookupByLibrary.simpleMessage(
+      "Dashboard-werkbalk verbergen",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("Startpagina"),
+    "homeDashboard": MessageLookupByLibrary.simpleMessage("Startdashboard"),
     "hours": MessageLookupByLibrary.simpleMessage("uren"),
+    "hybridUnitSystem": MessageLookupByLibrary.simpleMessage("Hybride"),
     "imNotARobot": MessageLookupByLibrary.simpleMessage("Ik ben geen robot"),
+    "imperialUnitSystem": MessageLookupByLibrary.simpleMessage("Imperiaal"),
     "inactive": MessageLookupByLibrary.simpleMessage("Inactief"),
     "inactiveUserAlreadyExists": MessageLookupByLibrary.simpleMessage(
       "Inactieve gebruiker bestaat al",
@@ -222,10 +466,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "inactiveUserAlreadyExistsMessage": MessageLookupByLibrary.simpleMessage(
       "Er is al een geregistreerde gebruiker met een niet-geverifieerd e-mailadres.\nKlik op de knop \'Opnieuw verzenden\' als u de verificatie-e-mail opnieuw wilt verzenden.",
     ),
+    "indeterminate": MessageLookupByLibrary.simpleMessage("Onbepaald"),
     "invalidPasswordLengthMessage": MessageLookupByLibrary.simpleMessage(
       "Uw wachtwoord moet minimaal 6 tekens lang zijn",
     ),
+    "isRequiredText": MessageLookupByLibrary.simpleMessage("is verplicht."),
+    "job": MessageLookupByLibrary.simpleMessage("Taak"),
     "label": MessageLookupByLibrary.simpleMessage("Label"),
+    "language": MessageLookupByLibrary.simpleMessage("Taal"),
     "lastName": MessageLookupByLibrary.simpleMessage("Achternaam"),
     "lastNameRequireText": MessageLookupByLibrary.simpleMessage(
       "Achternaam is verplicht.",
@@ -235,10 +483,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "De lijst is momenteel leeg.",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Inloggen"),
+    "loginToApp": MessageLookupByLibrary.simpleMessage("Inloggen in de app"),
+    "loginToYourAccount": MessageLookupByLibrary.simpleMessage(
+      "Log in op uw account",
+    ),
+    "loginWith": MessageLookupByLibrary.simpleMessage("Inloggen met"),
     "logoDefaultValue": MessageLookupByLibrary.simpleMessage(
       "ThingsBoard-logo",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Uitloggen"),
+    "major": MessageLookupByLibrary.simpleMessage("Ernstig"),
+    "markAllAsRead": MessageLookupByLibrary.simpleMessage(
+      "Alles als gelezen markeren",
+    ),
+    "markAsRead": MessageLookupByLibrary.simpleMessage("Markeer als gelezen"),
+    "metricUnitSystem": MessageLookupByLibrary.simpleMessage("Metrisch"),
     "mfaProviderBackupCode": MessageLookupByLibrary.simpleMessage(
       "Back-upcode",
     ),
@@ -247,7 +506,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "mfaProviderTopt": MessageLookupByLibrary.simpleMessage(
       "Authenticator-app",
     ),
+    "minor": MessageLookupByLibrary.simpleMessage("Gering"),
     "minutes": MessageLookupByLibrary.simpleMessage("minuten"),
+    "mobileApp": MessageLookupByLibrary.simpleMessage("Mobiele app"),
+    "mobileAppBundle": MessageLookupByLibrary.simpleMessage(
+      "Mobiele app-bundel",
+    ),
+    "mobileDashboardShouldBeConfiguredInDeviceProfile":
+        MessageLookupByLibrary.simpleMessage(
+          "Het mobiele dashboard moet worden geconfigureerd in het apparaatprofiel!",
+        ),
     "more": MessageLookupByLibrary.simpleMessage("Meer"),
     "newPassword": MessageLookupByLibrary.simpleMessage("Nieuw wachtwoord"),
     "newPassword2": MessageLookupByLibrary.simpleMessage(
@@ -262,6 +530,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "newUserText": MessageLookupByLibrary.simpleMessage("Nieuwe gebruiker?"),
     "next": MessageLookupByLibrary.simpleMessage("Volgende"),
     "no": MessageLookupByLibrary.simpleMessage("Nee"),
+    "no2faProvidersFound": MessageLookupByLibrary.simpleMessage(
+      "Geen 2FA-providers gevonden",
+    ),
+    "noAlarmsFound": MessageLookupByLibrary.simpleMessage(
+      "Geen alarmen gevonden",
+    ),
+    "noDashboardsFound": MessageLookupByLibrary.simpleMessage(
+      "Geen dashboards gevonden",
+    ),
+    "noNotificationsFound": MessageLookupByLibrary.simpleMessage(
+      "Geen meldingen gevonden",
+    ),
     "noResultsFound": MessageLookupByLibrary.simpleMessage(
       "Geen resultaten gevonden",
     ),
@@ -269,13 +549,34 @@ class MessageLookup extends MessageLookupByLibrary {
     "northAmericaRegionShort": MessageLookupByLibrary.simpleMessage(
       "N. Virginia",
     ),
+    "notFound": MessageLookupByLibrary.simpleMessage("Niet gevonden"),
     "notImplemented": MessageLookupByLibrary.simpleMessage(
       "Niet geïmplementeerd!",
     ),
-    "notifications": m13,
-    "openAppSettingsToGrantPermissionMessage": m14,
+    "notificationRequest": MessageLookupByLibrary.simpleMessage(
+      "Meldingsverzoek",
+    ),
+    "notificationRule": MessageLookupByLibrary.simpleMessage("Meldingsregel"),
+    "notificationTarget": MessageLookupByLibrary.simpleMessage("Meldingsdoel"),
+    "notificationTemplate": MessageLookupByLibrary.simpleMessage(
+      "Meldingssjabloon",
+    ),
+    "notifications": m14,
+    "oauth2Client": MessageLookupByLibrary.simpleMessage("OAuth2-client"),
+    "openAppSettings": MessageLookupByLibrary.simpleMessage(
+      "App-instellingen openen",
+    ),
+    "openAppSettingsToGrantPermissionMessage": m15,
+    "openSettingsAndGrantAccessToCameraToContinue":
+        MessageLookupByLibrary.simpleMessage(
+          "Open instellingen en geef cameratoegang om door te gaan",
+        ),
+    "openWifiSettings": MessageLookupByLibrary.simpleMessage(
+      "Wi-Fi-instellingen openen",
+    ),
     "or": MessageLookupByLibrary.simpleMessage("OF"),
     "originator": MessageLookupByLibrary.simpleMessage("Oorsprong"),
+    "otaPackage": MessageLookupByLibrary.simpleMessage("OTA-pakket"),
     "password": MessageLookupByLibrary.simpleMessage("Wachtwoord"),
     "passwordErrorNotification": MessageLookupByLibrary.simpleMessage(
       "De ingevoerde wachtwoorden moeten hetzelfde zijn!",
@@ -299,17 +600,51 @@ class MessageLookup extends MessageLookupByLibrary {
     "passwordSuccessNotification": MessageLookupByLibrary.simpleMessage(
       "Wachtwoord succesvol gewijzigd",
     ),
-    "permissionsNotEnoughMessage": m15,
+    "permissions": MessageLookupByLibrary.simpleMessage("Rechten"),
+    "permissionsNotEnoughMessage": m16,
     "phone": MessageLookupByLibrary.simpleMessage("Telefoon"),
-    "popTitle": m16,
+    "phoneIsInvalid": MessageLookupByLibrary.simpleMessage(
+      "Telefoonnummer is ongeldig",
+    ),
+    "phoneIsRequired": MessageLookupByLibrary.simpleMessage(
+      "Telefoon is verplicht",
+    ),
+    "phoneNumberHelperText": MessageLookupByLibrary.simpleMessage(
+      "Telefoonnummer in E.164-formaat, bijv. +1201550123",
+    ),
+    "pleaseContactYourSystemAdministrator":
+        MessageLookupByLibrary.simpleMessage(
+          "Neem contact op met uw systeembeheerder",
+        ),
+    "pleaseFollowTheNextStepsToConnectYourPhoneTo":
+        MessageLookupByLibrary.simpleMessage(
+          "Volg de volgende stappen om uw telefoon met het apparaat te verbinden",
+        ),
+    "pleaseFollowTheNextStepsToReconnectnyourPhoneToYour":
+        MessageLookupByLibrary.simpleMessage(
+          "Volg de volgende stappen om\nuw telefoon opnieuw te verbinden met uw Wi-Fi",
+        ),
+    "pleaseScanQrCodeOnYourDevice": MessageLookupByLibrary.simpleMessage(
+      "Scan de QR-code op uw apparaat",
+    ),
+    "plusAlarmType": MessageLookupByLibrary.simpleMessage("+ Alarmtype"),
+    "popTitle": m17,
     "postalCode": MessageLookupByLibrary.simpleMessage("Postcode"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacybeleid"),
+    "profile": MessageLookupByLibrary.simpleMessage("Profiel"),
     "profileSuccessNotification": MessageLookupByLibrary.simpleMessage(
       "Profiel succesvol bijgewerkt",
     ),
     "provisionedSuccessfully": MessageLookupByLibrary.simpleMessage(
       "Apparaat is succesvol geprovisioneerd",
     ),
+    "pushNotificationsAreNotConfiguredpleaseContactYourSystemAdministrator":
+        MessageLookupByLibrary.simpleMessage(
+          "Push-meldingen zijn niet geconfigureerd.\nNeem contact op met uw systeembeheerder.",
+        ),
+    "queue": MessageLookupByLibrary.simpleMessage("Wachtrij"),
+    "queueStats": MessageLookupByLibrary.simpleMessage("Wachtrijstatistieken"),
+    "ready": MessageLookupByLibrary.simpleMessage("Gereed"),
     "refresh": MessageLookupByLibrary.simpleMessage("Verversen"),
     "repeatPassword": MessageLookupByLibrary.simpleMessage(
       "Herhaal uw wachtwoord",
@@ -317,30 +652,66 @@ class MessageLookup extends MessageLookupByLibrary {
     "requestPasswordReset": MessageLookupByLibrary.simpleMessage(
       "Wachtwoordherstel aanvragen",
     ),
+    "requestedEntityDoesNotExists": MessageLookupByLibrary.simpleMessage(
+      "De gevraagde entiteit bestaat niet.",
+    ),
     "resend": MessageLookupByLibrary.simpleMessage("Opnieuw verzenden"),
     "resendCode": MessageLookupByLibrary.simpleMessage(
       "Code opnieuw verzenden",
     ),
-    "resendCodeWait": m17,
+    "resendCodeWait": m18,
+    "reset": MessageLookupByLibrary.simpleMessage("Herstellen"),
+    "retry": MessageLookupByLibrary.simpleMessage("Opnieuw proberen"),
     "returnToDashboard": MessageLookupByLibrary.simpleMessage(
       "Terug naar dashboard",
     ),
+    "returnToTheAppAndTapReadyButton": MessageLookupByLibrary.simpleMessage(
+      "Ga terug naar de app en tik op de knop Gereed",
+    ),
+    "routeNotDefined": m19,
+    "rpc": MessageLookupByLibrary.simpleMessage("RPC"),
+    "ruleChain": MessageLookupByLibrary.simpleMessage("Regelketen"),
+    "ruleNode": MessageLookupByLibrary.simpleMessage("Regelknooppunt"),
+    "scanACode": MessageLookupByLibrary.simpleMessage("Scan een code"),
+    "scanQrCode": MessageLookupByLibrary.simpleMessage("QR-code scannen"),
+    "search": MessageLookupByLibrary.simpleMessage("Zoeken"),
+    "searchResults": MessageLookupByLibrary.simpleMessage("Zoekresultaten"),
+    "searchUsers": m20,
     "seconds": MessageLookupByLibrary.simpleMessage("seconden"),
+    "security": MessageLookupByLibrary.simpleMessage("Beveiliging"),
+    "selectCountry": MessageLookupByLibrary.simpleMessage("Land selecteren"),
     "selectRegion": MessageLookupByLibrary.simpleMessage("Selecteer regio"),
     "selectUser": MessageLookupByLibrary.simpleMessage("Gebruikers selecteren"),
     "selectWayToVerify": MessageLookupByLibrary.simpleMessage(
       "Selecteer een verificatiemethode",
     ),
+    "selectWifiNetwork": MessageLookupByLibrary.simpleMessage(
+      "Wi-Fi-netwerk selecteren",
+    ),
+    "sendCode": MessageLookupByLibrary.simpleMessage("Code verzenden"),
     "sendingWifiCredentials": MessageLookupByLibrary.simpleMessage(
       "Wi-Fi-inloggegevens verzenden",
     ),
+    "setUpAVerificationMethod": MessageLookupByLibrary.simpleMessage(
+      "Verificatiemethode instellen",
+    ),
+    "setUpAVerificationMethodToContinueWithYourLogin":
+        MessageLookupByLibrary.simpleMessage(
+          "Stel een verificatiemethode in om door te gaan met inloggen",
+        ),
     "severity": MessageLookupByLibrary.simpleMessage("Ernst"),
     "signIn": MessageLookupByLibrary.simpleMessage("Inloggen"),
     "signUp": MessageLookupByLibrary.simpleMessage("Registreren"),
-    "smsAuthDescription": m20,
+    "smsAuthDescription": m21,
     "smsAuthPlaceholder": MessageLookupByLibrary.simpleMessage("SMS-code"),
+    "smsSetupSuccessDescription": MessageLookupByLibrary.simpleMessage(
+      "De volgende keer dat u inlogt, wordt u gevraagd de beveiligingscode in te voeren die naar uw telefoonnummer wordt gestuurd",
+    ),
     "somethingWentWrong": MessageLookupByLibrary.simpleMessage(
       "Er is iets misgegaan",
+    ),
+    "somethingWentWrongRollback": MessageLookupByLibrary.simpleMessage(
+      "Er is iets misgegaan ... Terugdraaien",
     ),
     "startTime": MessageLookupByLibrary.simpleMessage("Starttijd"),
     "stateOrProvince": MessageLookupByLibrary.simpleMessage(
@@ -350,14 +721,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "systemAdministrator": MessageLookupByLibrary.simpleMessage(
       "Systeembeheerder",
     ),
+    "tbResource": MessageLookupByLibrary.simpleMessage("Bron"),
+    "tenant": MessageLookupByLibrary.simpleMessage("Tenant"),
     "tenantAdministrator": MessageLookupByLibrary.simpleMessage(
       "Tenantbeheerder",
     ),
+    "tenantProfile": MessageLookupByLibrary.simpleMessage("Tenantprofiel"),
     "termsOfUse": MessageLookupByLibrary.simpleMessage("Gebruiksvoorwaarden"),
+    "thisActionCannotBeUndone": MessageLookupByLibrary.simpleMessage(
+      "Deze actie kan niet ongedaan worden gemaakt",
+    ),
+    "thisWillMakeYourAccountLessSecure": MessageLookupByLibrary.simpleMessage(
+      "Dit maakt uw account minder veilig",
+    ),
     "title": MessageLookupByLibrary.simpleMessage("Titel"),
+    "toggleCamera": MessageLookupByLibrary.simpleMessage("Camera wisselen"),
+    "toggleFlash": MessageLookupByLibrary.simpleMessage("Flitser schakelen"),
     "toptAuthPlaceholder": MessageLookupByLibrary.simpleMessage("Code"),
     "totpAuthDescription": MessageLookupByLibrary.simpleMessage(
       "Voer de beveiligingscode in vanuit uw authenticator-app.",
+    ),
+    "totpSetupSuccessDescription": MessageLookupByLibrary.simpleMessage(
+      "De volgende keer dat u inlogt, moet u een tweefactorauthenticatiecode opgeven",
     ),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Probeer opnieuw"),
     "tryAnotherWay": MessageLookupByLibrary.simpleMessage(
@@ -369,10 +754,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "tryRefreshing": MessageLookupByLibrary.simpleMessage(
       "Probeer te verversen",
     ),
+    "twofactorAuthentication": MessageLookupByLibrary.simpleMessage(
+      "Tweefactorauthenticatie",
+    ),
+    "twofactorAuthenticationIsRequired": MessageLookupByLibrary.simpleMessage(
+      "Tweefactorauthenticatie is vereist",
+    ),
+    "twofactorAuthenticationProtectsYourAccountFromUnauthorizedAccessAllYou":
+        MessageLookupByLibrary.simpleMessage(
+          "Tweefactorauthenticatie beschermt uw account tegen ongeautoriseerde toegang. U hoeft alleen een beveiligingscode in te voeren bij het inloggen.",
+        ),
     "type": MessageLookupByLibrary.simpleMessage("Type"),
+    "unableConnectToDevice": MessageLookupByLibrary.simpleMessage(
+      "Kan niet verbinden met apparaat",
+    ),
+    "unableConnectToWifiBecauseNetworksWasntFoundByDevice": m22,
+    "unableToUseCamera": MessageLookupByLibrary.simpleMessage(
+      "Kan camera niet gebruiken",
+    ),
+    "unacknowledged": MessageLookupByLibrary.simpleMessage("Onbevestigd"),
     "unassigned": MessageLookupByLibrary.simpleMessage("Niet toegewezen"),
+    "unitSystem": MessageLookupByLibrary.simpleMessage("Eenhedensysteem"),
+    "unknownError": MessageLookupByLibrary.simpleMessage("Onbekende fout."),
+    "unread": MessageLookupByLibrary.simpleMessage("Ongelezen"),
+    "unsavedChanges": MessageLookupByLibrary.simpleMessage(
+      "Niet-opgeslagen wijzigingen",
+    ),
+    "update": MessageLookupByLibrary.simpleMessage("Bijwerken"),
     "updateRequired": MessageLookupByLibrary.simpleMessage("Update vereist"),
-    "updateTo": m22,
+    "updateTo": m23,
+    "url": MessageLookupByLibrary.simpleMessage("URL"),
+    "user": MessageLookupByLibrary.simpleMessage("Gebruiker"),
     "username": MessageLookupByLibrary.simpleMessage("gebruikersnaam"),
     "users": MessageLookupByLibrary.simpleMessage("Gebruikers"),
     "verificationCodeIncorrect": MessageLookupByLibrary.simpleMessage(
@@ -384,13 +796,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "verificationCodeManyRequest": MessageLookupByLibrary.simpleMessage(
       "Te veel verzoeken, controleer de verificatiecode",
     ),
+    "verificationRequired": MessageLookupByLibrary.simpleMessage(
+      "Verificatie vereist",
+    ),
     "verifyYourIdentity": MessageLookupByLibrary.simpleMessage(
       "Verifieer uw identiteit",
     ),
+    "viewAll": MessageLookupByLibrary.simpleMessage("Alles bekijken"),
     "viewDashboard": MessageLookupByLibrary.simpleMessage("Dashboard bekijken"),
-    "wifiHelpMessage": m23,
+    "warning": MessageLookupByLibrary.simpleMessage("Waarschuwing"),
+    "widgetType": MessageLookupByLibrary.simpleMessage("Widgettype"),
+    "widgetsBundle": MessageLookupByLibrary.simpleMessage("Widgetpakket"),
+    "wifiHelpMessage": m24,
     "wifiPassword": MessageLookupByLibrary.simpleMessage("Wi-Fi-wachtwoord"),
-    "wifiPasswordMessage": m24,
+    "wifiPasswordMessage": m25,
     "yes": MessageLookupByLibrary.simpleMessage("Ja"),
+    "yesDeactivate": MessageLookupByLibrary.simpleMessage("Ja, deactiveren"),
+    "yesDiscard": MessageLookupByLibrary.simpleMessage("Ja, verwerpen"),
+    "youHaveUnsavedChangesAreYouSureYouWantTo":
+        MessageLookupByLibrary.simpleMessage(
+          "U heeft niet-opgeslagen wijzigingen. Weet u zeker dat u deze pagina wilt verlaten?",
+        ),
   };
 }
