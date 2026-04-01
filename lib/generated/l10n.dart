@@ -3202,6 +3202,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Saved to platform 'Image gallery'`
+  String get imageSavedToGallery {
+    return Intl.message(
+      'Saved to platform \'Image gallery\'',
+      name: 'imageSavedToGallery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to save image`
+  String get failedToSaveImage {
+    return Intl.message(
+      'Failed to save image',
+      name: 'failedToSaveImage',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
