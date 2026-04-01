@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -29,9 +30,11 @@ class TakeScreenshotAction extends MobileAction {
       final List<int>? imageBytes = await controller.takeScreenshot();
       if (imageBytes != null) {
         if (saveToGallery) {
-          getIt<ITbImageGalleryService>().uploadImage(
-            Uint8List.fromList(imageBytes),
-            title: 'tb_screenshot_${DateTime.now().millisecondsSinceEpoch}.png',
+          unawaited(
+            getIt<ITbImageGalleryService>().uploadImage(
+              Uint8List.fromList(imageBytes),
+              title: 'tb_screenshot_${DateTime.now().millisecondsSinceEpoch}.png',
+            ),
           );
         }
 

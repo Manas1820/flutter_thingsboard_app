@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 
@@ -41,10 +42,12 @@ class TakePictureFromGalleryAction extends MobileAction {
                 ? 'tb_photo_${DateTime.now().millisecondsSinceEpoch}.${extensionFromMime(mimeType)}'
                 : pickedFile.name;
 
-            getIt<ITbImageGalleryService>().uploadImage(
-              Uint8List.fromList(imageBytes),
-              title: title,
-              mimeType: mimeType,
+            unawaited(
+              getIt<ITbImageGalleryService>().uploadImage(
+                Uint8List.fromList(imageBytes),
+                title: title,
+                mimeType: mimeType,
+              ),
             );
           }
 
