@@ -9,13 +9,8 @@ class AlarmDetailsDatasource implements IAlarmDetailsDatasource {
   @override
   Future<PageData<AlarmCommentInfo>> fetchAlarmComments(
     AlarmCommentsQuery query,
-  ) async {
-    final result =
-        await thingsboardClient.getAlarmService().getAlarmComments(query);
-    for (final item in result.data) {
-      _parseComment(item);
-    }
-    return result;
+  ) {
+    return thingsboardClient.getAlarmService().getAlarmComments(query);
   }
 
   @override
@@ -32,12 +27,10 @@ class AlarmDetailsDatasource implements IAlarmDetailsDatasource {
   Future<AlarmCommentInfo> postComment(
     AlarmId alarmId, {
     required String comment,
-  }) async {
-    final result = await thingsboardClient.getAlarmService().postAlarmComment(
+  }) {
+    return thingsboardClient.getAlarmService().postAlarmComment(
       AlarmComment(null, null, alarmId, null, AlarmCommentType.OTHER, {'text': comment}, null),
     );
-    _parseComment(result);
-    return result;
   }
 
   @override
@@ -53,12 +46,10 @@ class AlarmDetailsDatasource implements IAlarmDetailsDatasource {
     AlarmId alarmId, {
     required String id,
     required String comment,
-  }) async {
-    final result = await thingsboardClient.getAlarmService().postAlarmComment(
+  }) {
+    return thingsboardClient.getAlarmService().postAlarmComment(
       AlarmComment(id, null, alarmId, null, AlarmCommentType.OTHER, {'text': comment, 'edited': 'true'}, null),
     );
-    _parseComment(result);
-    return result;
   }
 
   @override
@@ -74,22 +65,5 @@ class AlarmDetailsDatasource implements IAlarmDetailsDatasource {
   @override
   Future<AlarmInfo> unassignAlarm(String alarmId) {
     return thingsboardClient.getAlarmService().unassignAlarm(alarmId);
-  }
-
-  void _parseComment(AlarmComment alarmComment) {
-    if (alarmComment.comment is Map) {
-      alarmComment.comment = AlarmCommentJsonNode.fromJson(
-        Map<String, dynamic>.from(alarmComment.comment as Map),
-      );
-    } else if (alarmComment.comment is String) {
-      alarmComment.comment = AlarmCommentJsonNode(
-        text: alarmComment.comment as String,
-        subtype: null,
-        userId: null,
-        edited: false,
-        editedOn: null,
-        assigneeId: null,
-      );
-    }
   }
 }
