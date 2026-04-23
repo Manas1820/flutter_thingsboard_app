@@ -521,13 +521,22 @@ class MessageLookup extends MessageLookupByLibrary {
       "No 2FA providers found",
     ),
     "noAlarmsFound": MessageLookupByLibrary.simpleMessage("No alarms found"),
+    "noAssetsFound": MessageLookupByLibrary.simpleMessage("No assets found"),
+    "noAuditLogsFound": MessageLookupByLibrary.simpleMessage(
+      "No audit logs found",
+    ),
+    "noCustomersFound": MessageLookupByLibrary.simpleMessage(
+      "No customers found",
+    ),
     "noDashboardsFound": MessageLookupByLibrary.simpleMessage(
       "No dashboards found",
     ),
+    "noDevicesFound": MessageLookupByLibrary.simpleMessage("No devices found"),
     "noNotificationsFound": MessageLookupByLibrary.simpleMessage(
       "No notifications found",
     ),
     "noResultsFound": MessageLookupByLibrary.simpleMessage("No results found"),
+    "noTenantsFound": MessageLookupByLibrary.simpleMessage("No tenants found"),
     "northAmerica": MessageLookupByLibrary.simpleMessage("North America"),
     "northAmericaRegionShort": MessageLookupByLibrary.simpleMessage(
       "N. Virginia",
@@ -704,6 +713,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Tenant Administrator",
     ),
     "tenantProfile": MessageLookupByLibrary.simpleMessage("Tenant profile"),
+    "tenants": MessageLookupByLibrary.simpleMessage("Tenants"),
     "termsOfUse": MessageLookupByLibrary.simpleMessage("Terms of Use"),
     "thisActionCannotBeUndone": MessageLookupByLibrary.simpleMessage(
       "This action cannot be undone",
