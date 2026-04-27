@@ -91,9 +91,64 @@ class S {
     return Intl.message('Assets', name: 'assets', desc: '', args: []);
   }
 
+  /// `Tenants`
+  String get tenants {
+    return Intl.message('Tenants', name: 'tenants', desc: '', args: []);
+  }
+
   /// `Audit Logs`
   String get auditLogs {
     return Intl.message('Audit Logs', name: 'auditLogs', desc: '', args: []);
+  }
+
+  /// `No customers found`
+  String get noCustomersFound {
+    return Intl.message(
+      'No customers found',
+      name: 'noCustomersFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No assets found`
+  String get noAssetsFound {
+    return Intl.message(
+      'No assets found',
+      name: 'noAssetsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No tenants found`
+  String get noTenantsFound {
+    return Intl.message(
+      'No tenants found',
+      name: 'noTenantsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No devices found`
+  String get noDevicesFound {
+    return Intl.message(
+      'No devices found',
+      name: 'noDevicesFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No audit logs found`
+  String get noAuditLogsFound {
+    return Intl.message(
+      'No audit logs found',
+      name: 'noAuditLogsFound',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Log Out`
