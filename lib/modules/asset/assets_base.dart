@@ -96,6 +96,22 @@ mixin AssetsBase on EntitiesBase<AssetInfo, PageLink> {
                           ),
                         ],
                       ),
+                      if (asset.label?.isNotEmpty == true)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Text(
+                            asset.label!,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: Color(0xFFAFAFAF),
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.italic,
+                              height: 16 / 12,
+                            ),
+                          ),
+                        ),
                       const SizedBox(height: 4),
                       Text(
                         asset.type,
@@ -145,6 +161,22 @@ mixin AssetsBase on EntitiesBase<AssetInfo, PageLink> {
                           height: 1.7,
                         ),
                       ),
+                      if (asset.label?.isNotEmpty == true)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2),
+                          child: Text(
+                            asset.label!,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              color: Color(0xFFAFAFAF),
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FontStyle.italic,
+                              height: 16 / 12,
+                            ),
+                          ),
+                        ),
                       Text(
                         asset.type,
                         style: const TextStyle(
