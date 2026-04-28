@@ -29,7 +29,8 @@ class AlarmDetailsDatasource implements IAlarmDetailsDatasource {
     required String comment,
   }) {
     return thingsboardClient.getAlarmService().postAlarmComment(
-      AlarmComment(null, null, alarmId, null, AlarmCommentType.OTHER, {'text': comment}, null),
+      AlarmComment(null, null, alarmId, null, AlarmCommentType.OTHER, comment, null),
+    
     );
   }
 
@@ -48,7 +49,7 @@ class AlarmDetailsDatasource implements IAlarmDetailsDatasource {
     required String comment,
   }) {
     return thingsboardClient.getAlarmService().postAlarmComment(
-      AlarmComment(id, null, alarmId, null, AlarmCommentType.OTHER, {'text': comment, 'edited': 'true'}, null),
+      AlarmComment(id, null, alarmId, null, AlarmCommentType.OTHER, comment, null)
     );
   }
 
