@@ -432,5 +432,38 @@
   "addVerificationMethod": "Verificatiemethode toevoegen",
   "areYouSureYouWantToExit": "Weet u zeker dat u wilt afsluiten?",
   "confirmToCloseTheApp": "Bevestig om de app te sluiten",
-  "loginNotification": "Log in op uw account"
+  "loginNotification": "Log in op uw account",
+  "nSelected": "{count} geselecteerd",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "Alle geladen selecteren",
+  "failedToPerformOperation": "{count, plural, =1{1 bewerking mislukt} other{{count} bewerkingen mislukt}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{1 melding verwijderen?} other{{count} meldingen verwijderen?}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{1 melding als gelezen markeren?} other{{count} meldingen als gelezen markeren?}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

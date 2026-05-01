@@ -432,5 +432,38 @@
   "addVerificationMethod": "Tilføj verifikationsmetode",
   "areYouSureYouWantToExit": "Er du sikker på, at du vil afslutte?",
   "confirmToCloseTheApp": "Bekræft for at lukke appen",
-  "loginNotification": "Log ind på din konto"
+  "loginNotification": "Log ind på din konto",
+  "nSelected": "{count} valgt",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "Vælg alle indlæste",
+  "failedToPerformOperation": "{count, plural, =1{1 handling mislykkedes} other{{count} handlinger mislykkedes}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{Slet 1 notifikation?} other{Slet {count} notifikationer?}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{Markér 1 notifikation som læst?} other{Markér {count} notifikationer som læst?}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

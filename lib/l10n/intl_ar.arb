@@ -431,5 +431,38 @@
   "phoneIsInvalid": "رقم الهاتف غير صالح",
   "addVerificationMethod": "إضافة طريقة تحقق",
   "areYouSureYouWantToExit": "هل أنت متأكد أنك تريد الخروج؟",
-  "confirmToCloseTheApp": "تأكيد لإغلاق التطبيق"
+  "confirmToCloseTheApp": "تأكيد لإغلاق التطبيق",
+  "nSelected": "{count} محدد",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "تحديد الكل المحمّل",
+  "failedToPerformOperation": "{count, plural, =1{فشلت عملية واحدة} other{فشلت {count} عمليات}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{حذف إشعار واحد؟} other{حذف {count} إشعارات؟}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{وضع علامة مقروء لإشعار واحد؟} other{وضع علامة مقروء لـ {count} إشعارات؟}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

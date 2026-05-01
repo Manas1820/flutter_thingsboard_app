@@ -432,5 +432,38 @@
   "addVerificationMethod": "Legg til verifiseringsmetode",
   "areYouSureYouWantToExit": "Er du sikker på at du vil avslutte?",
   "confirmToCloseTheApp": "Bekreft for å lukke appen",
-  "loginNotification": "Logg inn på kontoen din"
+  "loginNotification": "Logg inn på kontoen din",
+  "nSelected": "{count} valgt",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "Velg alle lastede",
+  "failedToPerformOperation": "{count, plural, =1{1 handling mislyktes} other{{count} handlinger mislyktes}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{Slette 1 varsling?} other{Slette {count} varslinger?}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{Markere 1 varsling som lest?} other{Markere {count} varslinger som lest?}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -431,5 +431,38 @@
   "phoneIsInvalid": "Số điện thoại không hợp lệ",
   "addVerificationMethod": "Thêm phương thức xác minh",
   "areYouSureYouWantToExit": "Bạn có chắc chắn muốn thoát?",
-  "confirmToCloseTheApp": "Xác nhận để đóng ứng dụng"
+  "confirmToCloseTheApp": "Xác nhận để đóng ứng dụng",
+  "nSelected": "{count} đã chọn",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "Chọn tất cả đã tải",
+  "failedToPerformOperation": "{count, plural, =1{1 thao tác thất bại} other{{count} thao tác thất bại}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{Xóa 1 thông báo?} other{Xóa {count} thông báo?}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{Đánh dấu 1 thông báo đã đọc?} other{Đánh dấu {count} thông báo đã đọc?}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

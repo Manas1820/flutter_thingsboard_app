@@ -431,5 +431,38 @@
   "phoneIsInvalid": "手机号码无效",
   "addVerificationMethod": "添加验证方式",
   "areYouSureYouWantToExit": "您确定要退出吗？",
-  "confirmToCloseTheApp": "确认关闭应用"
+  "confirmToCloseTheApp": "确认关闭应用",
+  "nSelected": "已选择 {count} 项",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "全选已加载",
+  "failedToPerformOperation": "{count, plural, =1{1 项操作失败} other{{count} 项操作失败}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{删除 1 条通知？} other{删除 {count} 条通知？}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{将 1 条通知标记为已读？} other{将 {count} 条通知标记为已读？}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

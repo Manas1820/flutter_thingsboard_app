@@ -46,50 +46,61 @@ class MessageLookup extends MessageLookupByLibrary {
       "${Intl.plural(count, one: 'Dashbord', other: 'Dashbord')}";
 
   static String m9(count) =>
-      "${Intl.plural(count, one: 'Enhet', other: 'Enheter')}";
+      "${Intl.plural(count, one: 'Slette 1 varsling?', other: 'Slette ${count} varslinger?')}";
 
   static String m10(count) =>
+      "${Intl.plural(count, one: 'Enhet', other: 'Enheter')}";
+
+  static String m11(count) =>
       "${count}-${Intl.plural(count, one: 'sifret', other: 'sifret')} kode";
 
-  static String m11(contact) =>
+  static String m12(contact) =>
       "En sikkerhetskode har blitt sendt til e-postadressen din på ${contact}.";
 
-  static String m12(e) => "Feil oppstod: ${e}";
+  static String m13(e) => "Feil oppstod: ${e}";
 
-  static String m13(error) => "Feil ved sending av kode: ${error}";
+  static String m14(error) => "Feil ved sending av kode: ${error}";
 
-  static String m14(count) =>
+  static String m15(count) =>
+      "${Intl.plural(count, one: '1 handling mislyktes', other: '${count} handlinger mislyktes')}";
+
+  static String m16(count) =>
+      "${Intl.plural(count, one: 'Markere 1 varsling som lest?', other: 'Markere ${count} varslinger som lest?')}";
+
+  static String m17(count) => "${count} valgt";
+
+  static String m18(count) =>
       "${Intl.plural(count, one: 'Varsel', other: 'Varsler')}";
 
-  static String m15(permissions) =>
+  static String m19(permissions) =>
       "Du har ikke tilstrekkelige tillatelser for \"${permissions}\" til å fortsette. Åpne appinnstillingene, gi nødvendige tillatelser og trykk \"Prøv igjen\".";
 
-  static String m16(permissions) =>
+  static String m20(permissions) =>
       "Du har ikke tilstrekkelige tillatelser for \"${permissions}\" til å fortsette. Gi nødvendige tillatelser og trykk \"Prøv igjen\".";
 
-  static String m17(deviceName) =>
+  static String m21(deviceName) =>
       "Skriv inn PIN for ${deviceName} for å bekrefte eierskapsbevis";
 
-  static String m18(time) =>
+  static String m22(time) =>
       "Send koden på nytt om ${Intl.plural(time, one: '1 sekund', other: '${time} sekunder')}";
 
-  static String m19(name) => "Rute ikke definert: ${name}";
+  static String m23(name) => "Rute ikke definert: ${name}";
 
-  static String m20(count) =>
+  static String m24(count) =>
       "${Intl.plural(count, one: 'Søk bruker', other: 'Søk brukere')}";
 
-  static String m21(contact) =>
+  static String m25(contact) =>
       "En sikkerhetskode har blitt sendt til telefonen din på ${contact}.";
 
-  static String m22(name) =>
+  static String m26(name) =>
       "Kan ikke koble til Wi-Fi fordi enheten ${name} ikke fant nettverk";
 
-  static String m23(version) => "Oppdater til ${version}";
+  static String m27(version) => "Oppdater til ${version}";
 
-  static String m24(deviceName) =>
+  static String m28(deviceName) =>
       "For å fortsette oppsettet av enheten din ${deviceName}, vennligst oppgi nettverksinformasjonen din.";
 
-  static String m25(network) => "Skriv inn passordet for ${network}";
+  static String m29(network) => "Skriv inn passordet for ${network}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -347,6 +358,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete": MessageLookupByLibrary.simpleMessage("Slett"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("Slett konto"),
     "deleteComment": MessageLookupByLibrary.simpleMessage("Slett kommentar"),
+    "deleteSelectedNotifications": m9,
     "details": MessageLookupByLibrary.simpleMessage("Detaljer"),
     "deviceList": MessageLookupByLibrary.simpleMessage("Enhetsliste"),
     "deviceNotAbleToFindWifiNearby": MessageLookupByLibrary.simpleMessage(
@@ -359,8 +371,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "deviceProvisioning": MessageLookupByLibrary.simpleMessage(
       "Enhetsklargjøring",
     ),
-    "devices": m9,
-    "digitsCode": m10,
+    "devices": m10,
+    "digitsCode": m11,
     "discardChanges": MessageLookupByLibrary.simpleMessage("Forkast endringer"),
     "domain": MessageLookupByLibrary.simpleMessage("Domene"),
     "done": MessageLookupByLibrary.simpleMessage("Ferdig"),
@@ -369,7 +381,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("Rediger"),
     "edited": MessageLookupByLibrary.simpleMessage("Redigert"),
     "email": MessageLookupByLibrary.simpleMessage("E-post"),
-    "emailAuthDescription": m11,
+    "emailAuthDescription": m12,
     "emailAuthPlaceholder": MessageLookupByLibrary.simpleMessage("E-postkode"),
     "emailInvalidText": MessageLookupByLibrary.simpleMessage(
       "Ugyldig e-postformat.",
@@ -403,8 +415,8 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "entityType": MessageLookupByLibrary.simpleMessage("Enhetstype"),
     "entityView": MessageLookupByLibrary.simpleMessage("Enhetsvisning"),
-    "errorOccured": m12,
-    "errorSendingCode": m13,
+    "errorOccured": m13,
+    "errorSendingCode": m14,
     "europe": MessageLookupByLibrary.simpleMessage("Europa"),
     "europeRegionShort": MessageLookupByLibrary.simpleMessage("Frankfurt"),
     "exitDeviceProvisioning": MessageLookupByLibrary.simpleMessage(
@@ -419,6 +431,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "failedToLoadTheList": MessageLookupByLibrary.simpleMessage(
       "Kunne ikke laste listen",
     ),
+    "failedToPerformOperation": m15,
     "failureDetails": MessageLookupByLibrary.simpleMessage("Feildetaljer"),
     "fatalApplicationErrorOccurred": MessageLookupByLibrary.simpleMessage(
       "Fatal applikasjonsfeil oppstod:",
@@ -480,6 +493,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "major": MessageLookupByLibrary.simpleMessage("Alvorlig"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("Merk alle som lest"),
     "markAsRead": MessageLookupByLibrary.simpleMessage("Merk som lest"),
+    "markSelectedNotificationsAsRead": m16,
     "metricUnitSystem": MessageLookupByLibrary.simpleMessage("Metrisk"),
     "mfaProviderBackupCode": MessageLookupByLibrary.simpleMessage(
       "Reservekode",
@@ -498,6 +512,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "Mobilt dashbord må konfigureres i enhetsprofilen!",
         ),
     "more": MessageLookupByLibrary.simpleMessage("Mer"),
+    "nSelected": m17,
     "newPassword": MessageLookupByLibrary.simpleMessage("Nytt passord"),
     "newPassword2": MessageLookupByLibrary.simpleMessage(
       "Bekreft nytt passord",
@@ -542,12 +557,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationTemplate": MessageLookupByLibrary.simpleMessage(
       "Varslingsmal",
     ),
-    "notifications": m14,
+    "notifications": m18,
     "oauth2Client": MessageLookupByLibrary.simpleMessage("OAuth2-klient"),
     "openAppSettings": MessageLookupByLibrary.simpleMessage(
       "Åpne appinnstillinger",
     ),
-    "openAppSettingsToGrantPermissionMessage": m15,
+    "openAppSettingsToGrantPermissionMessage": m19,
     "openSettingsAndGrantAccessToCameraToContinue":
         MessageLookupByLibrary.simpleMessage(
           "Åpne innstillinger og gi tilgang til kameraet for å fortsette",
@@ -582,7 +597,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Passordet ble endret",
     ),
     "permissions": MessageLookupByLibrary.simpleMessage("Tillatelser"),
-    "permissionsNotEnoughMessage": m16,
+    "permissionsNotEnoughMessage": m20,
     "phone": MessageLookupByLibrary.simpleMessage("Telefon"),
     "phoneIsInvalid": MessageLookupByLibrary.simpleMessage(
       "Telefonnummer er ugyldig",
@@ -609,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Skann QR-koden på enheten din",
     ),
     "plusAlarmType": MessageLookupByLibrary.simpleMessage("+ Alarmtype"),
-    "popTitle": m17,
+    "popTitle": m21,
     "postalCode": MessageLookupByLibrary.simpleMessage("Postnummer"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage(
       "Personvernerklæring",
@@ -640,7 +655,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resend": MessageLookupByLibrary.simpleMessage("Send på nytt"),
     "resendCode": MessageLookupByLibrary.simpleMessage("Send koden på nytt"),
-    "resendCodeWait": m18,
+    "resendCodeWait": m22,
     "reset": MessageLookupByLibrary.simpleMessage("Tilbakestill"),
     "retry": MessageLookupByLibrary.simpleMessage("Prøv igjen"),
     "returnToDashboard": MessageLookupByLibrary.simpleMessage(
@@ -649,7 +664,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "returnToTheAppAndTapReadyButton": MessageLookupByLibrary.simpleMessage(
       "Gå tilbake til appen og trykk Klar-knappen",
     ),
-    "routeNotDefined": m19,
+    "routeNotDefined": m23,
     "rpc": MessageLookupByLibrary.simpleMessage("RPC"),
     "ruleChain": MessageLookupByLibrary.simpleMessage("Regelkjede"),
     "ruleNode": MessageLookupByLibrary.simpleMessage("Regelnode"),
@@ -657,9 +672,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "scanQrCode": MessageLookupByLibrary.simpleMessage("Skann QR-kode"),
     "search": MessageLookupByLibrary.simpleMessage("Søk"),
     "searchResults": MessageLookupByLibrary.simpleMessage("Søkeresultater"),
-    "searchUsers": m20,
+    "searchUsers": m24,
     "seconds": MessageLookupByLibrary.simpleMessage("sekunder"),
     "security": MessageLookupByLibrary.simpleMessage("Sikkerhet"),
+    "selectAll": MessageLookupByLibrary.simpleMessage("Velg alle lastede"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("Velg land"),
     "selectRegion": MessageLookupByLibrary.simpleMessage("Velg region"),
     "selectUser": MessageLookupByLibrary.simpleMessage("Velg brukere"),
@@ -683,7 +699,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "severity": MessageLookupByLibrary.simpleMessage("Alvorlighetsgrad"),
     "signIn": MessageLookupByLibrary.simpleMessage("Logg inn"),
     "signUp": MessageLookupByLibrary.simpleMessage("Registrer deg"),
-    "smsAuthDescription": m21,
+    "smsAuthDescription": m25,
     "smsAuthPlaceholder": MessageLookupByLibrary.simpleMessage("SMS-kode"),
     "smsSetupSuccessDescription": MessageLookupByLibrary.simpleMessage(
       "Neste gang du logger inn, vil du bli bedt om å taste inn sikkerhetskoden som sendes til telefonnummeret",
@@ -741,7 +757,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unableConnectToDevice": MessageLookupByLibrary.simpleMessage(
       "Kan ikke koble til enhet",
     ),
-    "unableConnectToWifiBecauseNetworksWasntFoundByDevice": m22,
+    "unableConnectToWifiBecauseNetworksWasntFoundByDevice": m26,
     "unableToUseCamera": MessageLookupByLibrary.simpleMessage(
       "Kan ikke bruke kameraet",
     ),
@@ -757,7 +773,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "updateRequired": MessageLookupByLibrary.simpleMessage(
       "Oppdatering kreves",
     ),
-    "updateTo": m23,
+    "updateTo": m27,
     "url": MessageLookupByLibrary.simpleMessage("URL"),
     "user": MessageLookupByLibrary.simpleMessage("Bruker"),
     "username": MessageLookupByLibrary.simpleMessage("brukernavn"),
@@ -782,9 +798,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "warning": MessageLookupByLibrary.simpleMessage("Advarsel"),
     "widgetType": MessageLookupByLibrary.simpleMessage("Widgettype"),
     "widgetsBundle": MessageLookupByLibrary.simpleMessage("Widgetpakke"),
-    "wifiHelpMessage": m24,
+    "wifiHelpMessage": m28,
     "wifiPassword": MessageLookupByLibrary.simpleMessage("Wi-Fi-passord"),
-    "wifiPasswordMessage": m25,
+    "wifiPasswordMessage": m29,
     "yes": MessageLookupByLibrary.simpleMessage("Ja"),
     "yesDeactivate": MessageLookupByLibrary.simpleMessage("Ja, deaktiver"),
     "yesDiscard": MessageLookupByLibrary.simpleMessage("Ja, forkast"),

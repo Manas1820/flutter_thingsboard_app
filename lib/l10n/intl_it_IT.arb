@@ -432,5 +432,38 @@
   "addVerificationMethod": "Aggiungi metodo di verifica",
   "areYouSureYouWantToExit": "Sei sicuro di voler uscire?",
   "confirmToCloseTheApp": "Conferma per chiudere l'app",
-  "loginNotification": "Accedi al tuo account"
+  "loginNotification": "Accedi al tuo account",
+  "nSelected": "{count} selezionati",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "Seleziona tutti i caricati",
+  "failedToPerformOperation": "{count, plural, =1{1 operazione non riuscita} other{{count} operazioni non riuscite}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{Eliminare 1 notifica?} other{Eliminare {count} notifiche?}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{Segnare 1 notifica come letta?} other{Segnare {count} notifiche come lette?}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -431,5 +431,38 @@
   "phoneIsInvalid": "手機號碼無效",
   "addVerificationMethod": "新增驗證方式",
   "areYouSureYouWantToExit": "您確定要退出嗎？",
-  "confirmToCloseTheApp": "確認關閉應用程式"
+  "confirmToCloseTheApp": "確認關閉應用程式",
+  "nSelected": "已選擇 {count} 項",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "全選已載入",
+  "failedToPerformOperation": "{count, plural, =1{1 項操作失敗} other{{count} 項操作失敗}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{刪除 1 則通知？} other{刪除 {count} 則通知？}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{將 1 則通知標記為已讀？} other{將 {count} 則通知標記為已讀？}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }
