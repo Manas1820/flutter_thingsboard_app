@@ -40,43 +40,54 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m8(count) => "${Intl.plural(count, one: '儀表板', other: '儀表板')}";
 
-  static String m9(count) => "${Intl.plural(count, one: '設備', other: '設備')}";
+  static String m9(count) =>
+      "${Intl.plural(count, one: '刪除 1 則通知？', other: '刪除 ${count} 則通知？')}";
 
-  static String m10(count) => "${count}位數驗證碼";
+  static String m10(count) => "${Intl.plural(count, one: '設備', other: '設備')}";
 
-  static String m11(contact) => "安全碼已發送到您的電子郵件 ${contact}。";
+  static String m11(count) => "${count}位數驗證碼";
 
-  static String m12(e) => "發生錯誤：${e}";
+  static String m12(contact) => "安全碼已發送到您的電子郵件 ${contact}。";
 
-  static String m13(error) => "傳送驗證碼錯誤：${error}";
+  static String m13(e) => "發生錯誤：${e}";
 
-  static String m14(count) => "${Intl.plural(count, one: '通知', other: '通知')}";
+  static String m14(error) => "傳送驗證碼錯誤：${error}";
 
-  static String m15(permissions) =>
+  static String m15(count) =>
+      "${Intl.plural(count, one: '1 項操作失敗', other: '${count} 項操作失敗')}";
+
+  static String m16(count) =>
+      "${Intl.plural(count, one: '將 1 則通知標記為已讀？', other: '將 ${count} 則通知標記為已讀？')}";
+
+  static String m17(count) => "已選擇 ${count} 項";
+
+  static String m18(count) => "${Intl.plural(count, one: '通知', other: '通知')}";
+
+  static String m19(permissions) =>
       "您沒有足夠的「${permissions}」權限以繼續。請開啟應用程式設定，授予權限並點選「再試一次」。";
 
-  static String m16(permissions) =>
+  static String m20(permissions) =>
       "您沒有足夠的「${permissions}」權限以繼續。請授予所需權限並點選「再試一次」。";
 
-  static String m17(deviceName) => "輸入 ${deviceName} 的PIN碼以確認持有權證明";
+  static String m21(deviceName) => "輸入 ${deviceName} 的PIN碼以確認持有權證明";
 
-  static String m18(time) =>
+  static String m22(time) =>
       "在 ${Intl.plural(time, one: '1 秒', other: '${time} 秒')}內重新發送驗證碼";
 
-  static String m19(name) => "路由未定義：${name}";
+  static String m23(name) => "路由未定義：${name}";
 
-  static String m20(count) =>
+  static String m24(count) =>
       "${Intl.plural(count, one: '搜尋使用者', other: '搜尋使用者')}";
 
-  static String m21(contact) => "安全碼已發送到您的手機 ${contact}。";
+  static String m25(contact) => "安全碼已發送到您的手機 ${contact}。";
 
-  static String m22(name) => "無法連線 Wi-Fi，因為設備 ${name} 未找到網路";
+  static String m26(name) => "無法連線 Wi-Fi，因為設備 ${name} 未找到網路";
 
-  static String m23(version) => "更新至 ${version}";
+  static String m27(version) => "更新至 ${version}";
 
-  static String m24(deviceName) => "要繼續設定您的設備 ${deviceName}，請提供您網路的認證資料。";
+  static String m28(deviceName) => "要繼續設定您的設備 ${deviceName}，請提供您網路的認證資料。";
 
-  static String m25(network) => "輸入 ${network} 的密碼";
+  static String m29(network) => "輸入 ${network} 的密碼";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -266,6 +277,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "delete": MessageLookupByLibrary.simpleMessage("刪除"),
     "deleteAccount": MessageLookupByLibrary.simpleMessage("刪除帳戶"),
     "deleteComment": MessageLookupByLibrary.simpleMessage("刪除評論"),
+    "deleteSelectedNotifications": m9,
     "details": MessageLookupByLibrary.simpleMessage("詳情"),
     "deviceList": MessageLookupByLibrary.simpleMessage("設備清單"),
     "deviceNotAbleToFindWifiNearby": MessageLookupByLibrary.simpleMessage(
@@ -276,8 +288,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "deviceProfile": MessageLookupByLibrary.simpleMessage("設備設定檔"),
     "deviceProvisioning": MessageLookupByLibrary.simpleMessage("設備設定"),
-    "devices": m9,
-    "digitsCode": m10,
+    "devices": m10,
+    "digitsCode": m11,
     "discardChanges": MessageLookupByLibrary.simpleMessage("捨棄變更"),
     "domain": MessageLookupByLibrary.simpleMessage("網域"),
     "done": MessageLookupByLibrary.simpleMessage("完成"),
@@ -286,7 +298,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "edit": MessageLookupByLibrary.simpleMessage("編輯"),
     "edited": MessageLookupByLibrary.simpleMessage("已編輯"),
     "email": MessageLookupByLibrary.simpleMessage("電子郵件"),
-    "emailAuthDescription": m11,
+    "emailAuthDescription": m12,
     "emailAuthPlaceholder": MessageLookupByLibrary.simpleMessage("電子郵件驗證碼"),
     "emailInvalidText": MessageLookupByLibrary.simpleMessage("電子郵件格式無效"),
     "emailRequireText": MessageLookupByLibrary.simpleMessage("電子郵件為必填項目"),
@@ -310,8 +322,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("輸入用於驗證的電子郵件。"),
     "entityType": MessageLookupByLibrary.simpleMessage("實體類型"),
     "entityView": MessageLookupByLibrary.simpleMessage("實體視圖"),
-    "errorOccured": m12,
-    "errorSendingCode": m13,
+    "errorOccured": m13,
+    "errorSendingCode": m14,
     "europe": MessageLookupByLibrary.simpleMessage("歐洲"),
     "europeRegionShort": MessageLookupByLibrary.simpleMessage("法蘭克福"),
     "exitDeviceProvisioning": MessageLookupByLibrary.simpleMessage("退出設備設定"),
@@ -320,6 +332,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "載入警報詳情失敗",
     ),
     "failedToLoadTheList": MessageLookupByLibrary.simpleMessage("載入清單失敗"),
+    "failedToPerformOperation": m15,
     "failureDetails": MessageLookupByLibrary.simpleMessage("失敗詳情"),
     "fatalApplicationErrorOccurred": MessageLookupByLibrary.simpleMessage(
       "發生致命應用程式錯誤：",
@@ -373,6 +386,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "major": MessageLookupByLibrary.simpleMessage("重要"),
     "markAllAsRead": MessageLookupByLibrary.simpleMessage("全部標記為已讀"),
     "markAsRead": MessageLookupByLibrary.simpleMessage("標記為已讀"),
+    "markSelectedNotificationsAsRead": m16,
     "metricUnitSystem": MessageLookupByLibrary.simpleMessage("公制"),
     "mfaProviderBackupCode": MessageLookupByLibrary.simpleMessage("備份碼"),
     "mfaProviderEmail": MessageLookupByLibrary.simpleMessage("電子郵件"),
@@ -385,6 +399,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mobileDashboardShouldBeConfiguredInDeviceProfile":
         MessageLookupByLibrary.simpleMessage("需要在設備設定檔中設定行動儀表板！"),
     "more": MessageLookupByLibrary.simpleMessage("更多"),
+    "nSelected": m17,
     "newPassword": MessageLookupByLibrary.simpleMessage("新密碼"),
     "newPassword2": MessageLookupByLibrary.simpleMessage("確認新密碼"),
     "newPassword2RequireText": MessageLookupByLibrary.simpleMessage("請再次輸入新密碼"),
@@ -405,10 +420,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "notificationRule": MessageLookupByLibrary.simpleMessage("通知規則"),
     "notificationTarget": MessageLookupByLibrary.simpleMessage("通知目標"),
     "notificationTemplate": MessageLookupByLibrary.simpleMessage("通知範本"),
-    "notifications": m14,
+    "notifications": m18,
     "oauth2Client": MessageLookupByLibrary.simpleMessage("OAuth2 用戶端"),
     "openAppSettings": MessageLookupByLibrary.simpleMessage("開啟應用程式設定"),
-    "openAppSettingsToGrantPermissionMessage": m15,
+    "openAppSettingsToGrantPermissionMessage": m19,
     "openSettingsAndGrantAccessToCameraToContinue":
         MessageLookupByLibrary.simpleMessage("開啟設定並授予攝影機存取權限以繼續"),
     "openWifiSettings": MessageLookupByLibrary.simpleMessage("開啟 Wi-Fi 設定"),
@@ -431,7 +446,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "密碼修改成功",
     ),
     "permissions": MessageLookupByLibrary.simpleMessage("權限"),
-    "permissionsNotEnoughMessage": m16,
+    "permissionsNotEnoughMessage": m20,
     "phone": MessageLookupByLibrary.simpleMessage("電話"),
     "phoneIsInvalid": MessageLookupByLibrary.simpleMessage("手機號碼無效"),
     "phoneIsRequired": MessageLookupByLibrary.simpleMessage("手機號碼為必填項目"),
@@ -448,7 +463,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "請掃描您設備上的 QR 碼",
     ),
     "plusAlarmType": MessageLookupByLibrary.simpleMessage("+ 警報類型"),
-    "popTitle": m17,
+    "popTitle": m21,
     "postalCode": MessageLookupByLibrary.simpleMessage("郵遞區號"),
     "privacyPolicy": MessageLookupByLibrary.simpleMessage("隱私權政策"),
     "profile": MessageLookupByLibrary.simpleMessage("個人資料"),
@@ -469,14 +484,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "resend": MessageLookupByLibrary.simpleMessage("重新發送"),
     "resendCode": MessageLookupByLibrary.simpleMessage("重新發送驗證碼"),
-    "resendCodeWait": m18,
+    "resendCodeWait": m22,
     "reset": MessageLookupByLibrary.simpleMessage("重設"),
     "retry": MessageLookupByLibrary.simpleMessage("重試"),
     "returnToDashboard": MessageLookupByLibrary.simpleMessage("返回儀表板"),
     "returnToTheAppAndTapReadyButton": MessageLookupByLibrary.simpleMessage(
       "返回應用程式並點選準備好按鈕",
     ),
-    "routeNotDefined": m19,
+    "routeNotDefined": m23,
     "rpc": MessageLookupByLibrary.simpleMessage("RPC"),
     "ruleChain": MessageLookupByLibrary.simpleMessage("規則鏈"),
     "ruleNode": MessageLookupByLibrary.simpleMessage("規則節點"),
@@ -484,9 +499,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "scanQrCode": MessageLookupByLibrary.simpleMessage("掃描QR碼"),
     "search": MessageLookupByLibrary.simpleMessage("搜尋"),
     "searchResults": MessageLookupByLibrary.simpleMessage("搜尋結果"),
-    "searchUsers": m20,
+    "searchUsers": m24,
     "seconds": MessageLookupByLibrary.simpleMessage("秒"),
     "security": MessageLookupByLibrary.simpleMessage("安全性"),
+    "selectAll": MessageLookupByLibrary.simpleMessage("全選已載入"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("選擇國家"),
     "selectRegion": MessageLookupByLibrary.simpleMessage("選擇地區"),
     "selectUser": MessageLookupByLibrary.simpleMessage("選擇使用者"),
@@ -502,7 +518,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "severity": MessageLookupByLibrary.simpleMessage("嚴重程度"),
     "signIn": MessageLookupByLibrary.simpleMessage("登入"),
     "signUp": MessageLookupByLibrary.simpleMessage("註冊"),
-    "smsAuthDescription": m21,
+    "smsAuthDescription": m25,
     "smsAuthPlaceholder": MessageLookupByLibrary.simpleMessage("簡訊驗證碼"),
     "smsSetupSuccessDescription": MessageLookupByLibrary.simpleMessage(
       "下次登入時，您將需要輸入傳送到手機號碼的安全碼",
@@ -548,7 +564,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "type": MessageLookupByLibrary.simpleMessage("類型"),
     "unableConnectToDevice": MessageLookupByLibrary.simpleMessage("無法連線到設備"),
-    "unableConnectToWifiBecauseNetworksWasntFoundByDevice": m22,
+    "unableConnectToWifiBecauseNetworksWasntFoundByDevice": m26,
     "unableToUseCamera": MessageLookupByLibrary.simpleMessage("無法使用攝影機"),
     "unacknowledged": MessageLookupByLibrary.simpleMessage("未確認"),
     "unassigned": MessageLookupByLibrary.simpleMessage("未指派"),
@@ -558,7 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsavedChanges": MessageLookupByLibrary.simpleMessage("未儲存的變更"),
     "update": MessageLookupByLibrary.simpleMessage("更新"),
     "updateRequired": MessageLookupByLibrary.simpleMessage("需要更新"),
-    "updateTo": m23,
+    "updateTo": m27,
     "url": MessageLookupByLibrary.simpleMessage("連結"),
     "user": MessageLookupByLibrary.simpleMessage("使用者"),
     "username": MessageLookupByLibrary.simpleMessage("使用者名稱"),
@@ -575,9 +591,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "warning": MessageLookupByLibrary.simpleMessage("警告"),
     "widgetType": MessageLookupByLibrary.simpleMessage("元件類型"),
     "widgetsBundle": MessageLookupByLibrary.simpleMessage("元件包"),
-    "wifiHelpMessage": m24,
+    "wifiHelpMessage": m28,
     "wifiPassword": MessageLookupByLibrary.simpleMessage("Wi-Fi 密碼"),
-    "wifiPasswordMessage": m25,
+    "wifiPasswordMessage": m29,
     "yes": MessageLookupByLibrary.simpleMessage("是"),
     "yesDeactivate": MessageLookupByLibrary.simpleMessage("是的，停用"),
     "yesDiscard": MessageLookupByLibrary.simpleMessage("是的，捨棄"),

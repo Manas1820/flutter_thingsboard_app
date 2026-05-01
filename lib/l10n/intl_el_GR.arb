@@ -432,5 +432,38 @@
   "addVerificationMethod": "Προσθήκη μεθόδου επαλήθευσης",
   "areYouSureYouWantToExit": "Είστε σίγουροι ότι θέλετε να βγείτε;",
   "confirmToCloseTheApp": "Επιβεβαίωση για κλείσιμο της εφαρμογής",
-  "loginNotification": "Συνδεθείτε στον λογαριασμό σας"
+  "loginNotification": "Συνδεθείτε στον λογαριασμό σας",
+  "nSelected": "{count} επιλεγμένα",
+  "@nSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "selectAll": "Επιλογή όλων των φορτωμένων",
+  "failedToPerformOperation": "{count, plural, =1{1 ενέργεια απέτυχε} other{{count} ενέργειες απέτυχαν}}",
+  "@failedToPerformOperation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteSelectedNotifications": "{count, plural, =1{Διαγραφή 1 ειδοποίησης;} other{Διαγραφή {count} ειδοποιήσεων;}}",
+  "@deleteSelectedNotifications": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "markSelectedNotificationsAsRead": "{count, plural, =1{Σήμανση 1 ειδοποίησης ως αναγνωσμένης;} other{Σήμανση {count} ειδοποιήσεων ως αναγνωσμένων;}}",
+  "@markSelectedNotificationsAsRead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }
