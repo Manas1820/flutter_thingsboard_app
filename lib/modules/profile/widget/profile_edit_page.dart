@@ -36,6 +36,9 @@ class ProfileEditPage extends HookConsumerWidget {
     final allLanguages = useMemoized(() => getAllLanguages(context));
     final canPop = useState(true);
 
+    final initialLocale = useMemoized(() => getCurrentLocale(context, user));
+    final selectedLocale = useState<Locale>(initialLocale);
+
     final form = useMemoized(
       () => FormGroup({
         "email": FormControl(
@@ -97,7 +100,16 @@ class ProfileEditPage extends HookConsumerWidget {
         initialValue: PhoneNumber(isoCode: IsoCode.fromJson('US'), nsn: ''),
       ),
     );
-    return Scaffold(
+    return PopScope(
+      canPop: canPop.value,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final cancel = await onCancelEditing(context);
+        if (cancel && context.mounted) {
+          await _setLanguageAndNavigate(context, initialLocale, context.pop);
+        }
+      },
+      child: Scaffold(
       appBar: TbAppBar(
         title: Text(
           '${S.of(context).edit} ${S.of(context).profile.toLowerCase()}',
@@ -107,7 +119,7 @@ class ProfileEditPage extends HookConsumerWidget {
             if (!canPop.value) {
               final cancel = await onCancelEditing(context);
               if (cancel && context.mounted) {
-                context.pop();
+                await _setLanguageAndNavigate(context, initialLocale, context.pop);
               }
             } else {
               if (context.mounted) {
@@ -253,7 +265,12 @@ class ProfileEditPage extends HookConsumerWidget {
                                     child: TbDropDownTextField<Locale>(
                                       formControlName: 'additionalInfo.lang',
                                       label: S.of(context).language,
-                                      onSelected: (val) => S.load(val!),
+                                      onSelected: (val) async {
+                                        await S.load(val!);
+                                        if (context.mounted) {
+                                          selectedLocale.value = val;
+                                        }
+                                      },
                                       selectedItemBuilder:
                                           (val) => getLocalizedLanguageName(
                                             val!,
@@ -395,7 +412,7 @@ class ProfileEditPage extends HookConsumerWidget {
                                 canPop.value
                                     ? null
                                     : () async {
-                                      await onDiscardPressed(context);
+                                      await onDiscardPressed(context, initialLocale);
                                     },
                             child: Text(S.of(context).discardChanges),
                           ),
@@ -412,6 +429,7 @@ class ProfileEditPage extends HookConsumerWidget {
             ),
           ],
         ),
+      ),
       ),
     );
   }
@@ -439,7 +457,7 @@ class ProfileEditPage extends HookConsumerWidget {
     }
   }
 
-  Future<void> onDiscardPressed(BuildContext context) async {
+  Future<void> onDiscardPressed(BuildContext context, Locale initialLocale) async {
     final original = S.of(context).discardChanges;
     String titleString = original;
     if (original.isNotEmpty) {
@@ -477,7 +495,11 @@ class ProfileEditPage extends HookConsumerWidget {
           ),
     );
     if (discard == true && context.mounted) {
-      context.pushReplacement('/profile/edit');
+      await _setLanguageAndNavigate(
+        context,
+        initialLocale,
+        () => context.pushReplacement('/profile/edit'),
+      );
     }
   }
 }
@@ -544,4 +566,13 @@ Future<bool> onCancelEditing(BuildContext context) async {
 
 String getCountryDisplayName(Country? country) {
   return '${country?.flagEmoji} ${country?.name}';
+}
+
+Future<void> _setLanguageAndNavigate(
+  BuildContext context,
+  Locale locale,
+  VoidCallback navigate,
+) async {
+  await S.load(locale);
+  if (context.mounted) navigate();
 }
