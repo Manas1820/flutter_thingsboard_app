@@ -69,7 +69,7 @@ class Login extends _$Login {
       final res = await _tbClient.login(LoginRequest(email, password));
       final user = _tbClient.getAuthUser();
       if (user != null &&
-          (user.isMfaConfigurationToken() || user.isMfaConfigurationToken())) {
+          (user.isMfaConfigurationToken() || user.isPreVerificationToken())) {
         return false;
       }
     } catch (e) {
@@ -88,8 +88,9 @@ class Login extends _$Login {
 
     final userInfo = await _tbClient.getUserService().getUser();
     final lang = userInfo.additionalInfo?['lang'];
+    final langStr = lang?.toString();
     final locale = S.delegate.supportedLocales.firstWhereOrNull(
-      (l) => l.toString() == lang.toString().split('_')[0],
+      (l) => l.toString() == langStr || l.languageCode == langStr,
     );
 
     await S.load(locale ?? const Locale('en'));

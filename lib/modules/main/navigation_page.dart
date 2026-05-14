@@ -101,7 +101,12 @@ class NavigationPage extends HookConsumerWidget {
                         items
                             .map(
                               (item) => TbMainNavigationItem(
-                                title: item.title,
+                                title: NavigationHelper.getLocalizedTitle(
+                                  context,
+                                  item.id,
+                                  item.path,
+                                  item.title,
+                                ),
                                 icon: item.icon,
                                 path: item.path,
                                 id: item.id,
