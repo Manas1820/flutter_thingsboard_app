@@ -2223,10 +2223,10 @@ packages:
     dependency: "direct main"
     description:
       name: thingsboard_client
-      sha256: fedf210eafef489b2c9125d0d5a26626b1029b9485cfac958820e91ce4c5ebfd
+      sha256: "9116f4a1aad506a933249b6f862c76f7101932ff445eaa725b24e872e9bb9e5b"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.0"
+    version: "4.2.0"
   time:
     dependency: transitive
     description:
